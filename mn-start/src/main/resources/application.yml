@@ -1,0 +1,11 @@
+micronaut:
+  application:
+    name: mn-start
+  server:
+    port: ${SERVER_PORT:8081}
+hello:
+  world:
+    message: "Hello from application.yml"
+    translation:
+      de: ""
+      en: "Hello World"

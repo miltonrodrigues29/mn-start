@@ -29,7 +29,21 @@ class HelloWorldControllerTest {
     void helloWorldEndPointRespondWithProperStatusCodeAndContext() {
         var response = client.toBlocking().exchange("/hello", String.class);
         assertEquals("Hello from Service", response.getBody().get());
-        assertEquals(HttpStatus.OK, response.getStatus());;
+        assertEquals(HttpStatus.OK, response.getStatus());
+    }
+
+    @Test
+    void helloFromConfigEndpointReturnMessageFromConfig() {
+        var response = client.toBlocking().exchange("/hello/config", String.class);
+        assertEquals("Hello from application.yml", response.getBody().get());
+        assertEquals(HttpStatus.OK, response.getStatus());
+    }
+
+    @Test
+    void helloFromConfigTranslation() {
+        var response = client.toBlocking().exchange("/hello/config/translation", String.class);
+        assertEquals("Hallo Welt", response.getBody().get());
+        assertEquals(HttpStatus.OK, response.getStatus());
     }
 
 }

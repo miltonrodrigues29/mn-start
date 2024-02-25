@@ -1,4 +1,4 @@
-package service;
+package com.milton.lseg.service;
 
 import jakarta.inject.Singleton;
 
